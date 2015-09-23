@@ -23,16 +23,22 @@ num = {'':(0,0,0,0,0,0,0),
     '9':(1,1,1,1,0,1,1)}
 
 
-array=[1,1,1,1,1,1,0],[0,1,1,0,0,0,0],[1,1,0,1,1,0,1],[1,1,1,1,0,0,1],[0,1,1,0,0,1,1]
+array=[1,1,1,1,1,1,1],[1,1,1,1,1,1,0],[0,1,1,0,0,0,0],[1,1,0,1,1,0,1],[1,1,1,1,0,0,1],[0,1,1,0,0,1,1],[1,0,1,1,0,1,1],[1,0,1,1,1,1,1]
 
 
 
 
 
-for x in range(0,4):
-    for y in range(0,7):
-        GPIO.output(segments[x], array[x][y])
-        time.sleep(0.1)
+for x in range(6,0,-1):
+
+    GPIO.output(4, array[x][0])
+    GPIO.output(17, array[x][1])
+    GPIO.output(27, array[x][2])
+    GPIO.output(22, array[x][3])
+    GPIO.output(18, array[x][4])
+    GPIO.output(23, array[x][5])
+    GPIO.output(24, array[x][6])
+    time.sleep(1.5)
 
 
 GPIO.cleanup()
